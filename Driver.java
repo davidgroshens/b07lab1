@@ -5,9 +5,9 @@ public class Driver {
 		
 		
 		double[] c1 = {1,2,3};
-		double[] c2 = {3,2,1};
+		double[] c2 = {-3,2,-1};
 		int[] exp1 = {0,1,2};
-		int[] exp2 = {1,2,3};
+		int[] exp2 = {1,2,0};
 		File file = new File("README.md");
 		Polynomial p1 = new Polynomial(c1, exp1);
 		Polynomial p2 = new Polynomial(c2, exp2);
@@ -18,6 +18,8 @@ public class Driver {
 		
 		//evaluat test
 		Polynomial t = p1.multiply(p2);
+		
+		p2.saveToFile("t.txt");
 		
 		
 		

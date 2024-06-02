@@ -128,11 +128,45 @@ public class Polynomial {
 		
 		
 		
-		
 	}
 
 	
 	//methods
+	
+	public void saveToFile(String str){
+		String result = "";
+		for (int i = 0; i < exp.length; i++){
+			if (i == 0){
+				result+=String.valueOf(nzcoef[i]);
+			}
+			else{
+				if (Double.toString(nzcoef[i]).charAt(0) != '-'){
+					result+='+';
+					result+=String.valueOf(nzcoef[i]);
+				}
+				else{
+					result+=String.valueOf(nzcoef[i]);
+				}
+			}
+			if (exp[i]!=0){
+				result+="x";
+				if (exp[i]!=1){
+					result+=String.valueOf(exp[i]);
+				}
+			}
+		}
+		
+		try{
+			PrintWriter out = new PrintWriter(str);
+			out.println(result);
+			out.close();
+		} catch (FileNotFoundException e){
+			e.printStackTrace();
+		}
+		
+		
+		
+	}
 	
 	public Polynomial add(Polynomial a) {
 		Polynomial result = new Polynomial();
